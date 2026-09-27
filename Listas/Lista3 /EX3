@@ -1,0 +1,24 @@
+EX3 
+
+package Lista_3;
+
+import java.util.Scanner;
+
+public class Ex3 {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int temp;
+        System.out.println("Digite a temperatura atual");
+temp = scan.nextInt();
+if (temp>= 40){
+    System.out.println("Temperatura extremamente alta");
+} else if (temp<0) {
+    System.out.println("Temperatura muito baixa");
+}
+if (temp>0 && temp < 40){
+    System.out.println("Temperatura normal");
+}
+
+
+    }
+}
