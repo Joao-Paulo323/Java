@@ -1,0 +1,27 @@
+EX6
+
+package Lista_3;
+
+import java.util.Scanner;
+
+public class Ex6 {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int idade;
+        System.out.println("Digite sua idade e falaremos sua faixa etaria");
+        idade = scan.nextInt();
+         if (idade >= 0 && idade <= 12){
+             System.out.println("Vocé é uma criança");
+         } else if (idade >= 13 && idade <= 17) {
+             System.out.println("Vocé é um adolescente");
+         } else if (idade >= 18 && idade <=64) {
+             System.out.println("Vocé é um adulto");
+         } else if (idade >= 65 && idade <= 130) {
+             System.out.println("Vocé é um idoso");
+         } if (idade<0 || idade>130) {
+            System.out.println("Idade invalida");
+        }
+
+
+    }
+}
