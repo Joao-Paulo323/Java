@@ -1,0 +1,22 @@
+EX9
+
+package Lista_3;
+
+import java.util.Scanner;
+
+public class Ex9 {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int temp;
+        System.out.println("Digite a temperatura aqui");
+        temp = scan.nextInt();
+        scan.close();
+        if (temp < 15) {
+            System.out.println("Ambiente esta frio");
+        } else if (temp >= 15 && temp <= 25) {
+            System.out.println("Temperatura agradavel");
+        } else if (temp > 25) {
+            System.out.println("O ambiente esta quente");
+        }
+    }
+}
