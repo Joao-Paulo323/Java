@@ -1,0 +1,22 @@
+EX10
+
+package Lista_3;
+
+import java.util.Scanner;
+
+public class Ex10 {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int x, y;
+        System.out.println("Digite dois números e informaremos se são iguais ou diferentes.");
+        x = scan.nextInt();
+        y = scan.nextInt();
+        if (x == y) {
+            System.out.println("Os números são iguais.");
+        }
+        else {
+            System.out.println("Os numeros são diferentes.");
+        }
+        scan.close();
+    }
+}
