@@ -1,0 +1,20 @@
+EX8
+
+package Lista_3;
+
+import java.util.Scanner;
+
+public class Ex8 {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        double num;
+        System.out.println("Digite um numero e falarei se ele e negativo ou positivo");
+        num = scan.nextDouble();
+        if (num >= 0) {
+            System.out.println("Seu numero e positivo");
+        } else {
+            System.out.println("Seu numero e negativo");
+        }
+
+    }
+}
