@@ -1,0 +1,129 @@
+package consumo_energetico;
+import java.util.Scanner;
+public class PROJETO1 {
+
+
+        public static void main(String[] args) {
+            Scanner scan = new Scanner(System.in);
+            int cadastro = 1;
+            String ambiente;
+            int opc;
+            System.out.println("Bem vindo ao progama de calculos de consumo de áreas comuns " +
+                    "\nO que você deseja hoje " +
+                    "\n1-Cadastrar um Novo objeto" +
+                    "\n2-Calcular o consumo de uma área comum ");
+            opc = scan.nextInt();
+            scan.nextLine();
+            while(opc != 1 && opc != 2){
+                System.out.println("Opção invalida digite uma valida  1 ou 2");
+                opc = scan.nextInt();
+            }
+            if (opc == 1) {
+                class objeto {
+                    String ambiente;
+                    String obj;
+                    Integer qnt;
+                    Integer ptc;
+                    double temp;
+                    double consumom;
+                    double custom;
+                }
+                double consumom, custom;
+                objeto[] vet = new objeto[5];
+
+                for (int i = 0; i < vet.length; i++) {
+                    vet[i] = new objeto();
+                    System.out.println("Escreva em qual ambiente ele ira entrar (biblioteca,cantina)");
+                    vet[i].ambiente = scan.nextLine();
+                    while (vet[i].ambiente != "biblioteca"&& vet[i].ambiente != "cantina") {
+                        System.out.println("Opção invalida digite uma valida  (Cantina ou Biblioteca)");
+                        vet[i].ambiente = scan.nextLine();
+                    }
+                    System.out.println("Escreva o nome do objeto");
+                    vet[i].obj = scan.nextLine();
+                    System.out.println("Escreva a quantidade de objetos");
+                    vet[i].qnt = scan.nextInt();
+                    System.out.println("Escreva a potência ");
+                    vet[i].ptc = scan.nextInt();
+                    System.out.println("Escreva o tempo medio de uso em horas diario");
+                    vet[i].temp = scan.nextInt();
+                    while (vet[i].temp > 24 || vet[i].temp <0){
+                        System.out.println("Tempo de uso invalido por favor coloque um tempo valido entrei (0.1 e 24)");
+                        vet[i].temp = scan.nextInt();
+                    }
+                    vet[i].consumom = (vet[i].ptc * vet[i].qnt * vet[i].temp * 30) / 1000.0;
+                    vet[i].custom = vet[i].consumom * 0.91;
+                    System.out.println("Você deseja adicionar outro objeto (sim/nao)");
+                    String retorno = scan.next();
+                    scan.nextLine();
+                    if  (retorno.equalsIgnoreCase("nao")){
+                        break;
+                    }
+
+                    cadastro++;
+                }
+                for (int i = 0; i < cadastro; i++) {
+                    System.out.printf(
+                            "Ambiente: %s%n" +
+                                    "Objeto: %s%n" +
+                                    "Quantidade: %d%n" +
+                                    "Potência: %d W%n" +
+                                    "Tempo: %.2f horas%n" +
+                                    "Consumo mensal: %.2f kWh%n" +
+                                    "Custo mensal: R$ %.2f%n",
+                            vet[i].ambiente,
+                            vet[i].obj,
+                            vet[i].qnt,
+                            vet[i].ptc,
+                            vet[i].temp,
+                            vet[i].consumom,
+                            vet[i].custom
+                    );
+                }
+            }
+            if (opc == 2) {
+                class Cantina {
+                  double Lampada = ((6*12*17*30)/1000);
+                  double MicroOndasPhilco = ((1*1400*2*30)/1000);
+                  double MicroOndasMondial = ((1*900*2*30)/1000);
+                  double MicroOndasWhirpol = ((1*1400*2*30)/1000);
+                  double ArcondicionadoBTUs = ((2*3100*17*30)/1000);
+                  double Resfriador = ((1*317*24*30)/1000);
+                  double LedSpotRedondo = ((4*5*17*30)/1000);
+                  double GeladeiraConsul1 = ((1*320*25*30)/1000);
+                  double GeladeiraConsul2 = ((1*95*24*30)/1000);
+                  double consumototal = Lampada +MicroOndasMondial+MicroOndasPhilco+MicroOndasWhirpol+
+                          ArcondicionadoBTUs +Resfriador+GeladeiraConsul2+GeladeiraConsul1 + LedSpotRedondo;
+                  double custototal = consumototal * 0.91;
+                }
+                class Biblioteca {
+                double lampada = ((18*12*17*30)/1000);
+                double computador = ((4*200*8*30)/1000);
+                double ArCondicionado = ((3*3300*17*30)/1000);
+                double Impressora3d = ((2*100*10*30)/1000);
+                double Televisao = ((2*500*5*30)/1000);
+                double consumototal = lampada+computador+ArCondicionado+Impressora3d+Televisao;
+                double custototal = consumototal * 0.91;
+                }
+
+                System.out.println("Qual ambiente deseja calcular o consumo (cantina/biblioteca)");
+                String amb = scan.nextLine();
+                while (!amb.equals("cantina") && !amb.equals("biblioteca")){
+                    System.out.println("Opção invalida digite (Cantina ou Biblioteca)");
+                    amb = scan.nextLine();
+                }
+                if  (amb.equals("cantina")){
+                    Cantina cantina = new Cantina();
+                    System.out.println("A cantina possui (Geladeira Consul1,Geladeira Consul2, Led Spot Redondo, Resfriador, Ar-condicionado BTUs" +
+                            ", Micro-Ondas Whirpol, Micro-Ondas Mondial, Micro-Ondas Philco,lampada )");
+                    System.out.println("O consumo total deste ambiente e de "+cantina.consumototal+" e o custo mensal total e de "+cantina.custototal);
+                }
+                if  (amb.equals("biblioteca")){
+                    Biblioteca biblioteca = new Biblioteca();
+                    System.out.println("A biblioteca possui Lampada, Computador, Ar-Condicionado, Impressora 3D, Televisâo");
+                    System.out.println("O consumo total deste ambiente e de "+biblioteca.consumototal+" e o custo mensal total e de"+biblioteca.custototal);
+                }
+            }
+        }
+    }
+
