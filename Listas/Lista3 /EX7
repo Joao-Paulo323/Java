@@ -1,0 +1,26 @@
+EX7
+
+package Lista_3;
+
+import java.util.Scanner;
+
+public class Ex7 {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int v1, v2, v3;
+        System.out.println("Digite três numeros e informaremos qual o maior deles");
+        v1 = scan.nextInt();
+        v2 = scan.nextInt();
+        v3 = scan.nextInt();
+        if (v1 > v2) {
+            if (v1 > v3) {
+                System.out.println("O maior numero é o " + v1);
+            }
+        } else if (v2 > v3) {
+            System.out.println("O maior numero é o " + v2);
+        } else {
+            System.out.println("O maior numero é o " + v3);
+        }
+
+    }
+}
